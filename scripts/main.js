@@ -1,4 +1,5 @@
 const IMG_URL = 'https://image.tmdb.org/t/p/w185_and_h278_bestv2';
+const GOOGLE_SEARCH_URL = 'https://www.google.ru/search?&rls=ru&q=';
 
 // menu
 const leftMenu= document.querySelector('.left-menu');
@@ -12,6 +13,7 @@ const genresList=document.querySelector('.genres-list');
 const rating=document.querySelector('.rating');
 const description=document.querySelector('.description');
 const modalLink=document.querySelector('.modal__link');
+const modalLinkGoogle=document.querySelector('.modal__link-s');
 const searchForm=document.querySelector('.search__form');
 const searchFormInput=document.querySelector('.search__form-input');
 const preloader = document.querySelector('.preloader');
@@ -247,6 +249,8 @@ tvShowsList.addEventListener('click', (event) => {
                 rating.textContent= response.vote_average;
                 description.textContent = response.overview;
                 modalLink.href = response.homepage;
+                modalLinkGoogle.textContent = `${response.name} - google search `;
+                modalLinkGoogle.href = `${GOOGLE_SEARCH_URL}+${response.name} смотреть онлайн`;
                 
             }).then(() => {
                 document.body.style.overflow = 'hidden';
