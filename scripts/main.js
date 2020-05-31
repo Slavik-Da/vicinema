@@ -32,7 +32,7 @@ const DBService = class {
         this.API_KEY = 'b2ad2d25e2979d0c45a15b47f28b6254';
         this.SERVER = 'https://api.themoviedb.org/3';
     }
-    getData = async (url) => {
+    async getData(url)  {
         const res = await fetch(url);
         if (res.ok) {
             return res.json();
